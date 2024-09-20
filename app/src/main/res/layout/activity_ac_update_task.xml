@@ -21,20 +21,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edtTitulo"
+        android:id="@+id/edtTit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:ems="10"
         android:hint="Titulo"
         android:gravity="center"
-        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/edtDescricao"
+        android:id="@+id/edtDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -45,10 +44,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTitulo" />
+        app:layout_constraintTop_toBottomOf="@+id/edtTit" />
 
     <EditText
-        android:id="@+id/edtdata"
+        android:id="@+id/edtDat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
@@ -56,10 +55,8 @@
         android:gravity="center"
         android:hint="Data"
         android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtDescricao" />
+        app:layout_constraintTop_toBottomOf="@+id/edtDesc"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btnCancel"
@@ -69,7 +66,7 @@
         android:text="Cancelar"
         app:layout_constraintEnd_toStartOf="@+id/btnSave"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtdata" />
+        app:layout_constraintTop_toBottomOf="@+id/edtDat" />
 
     <Button
         android:id="@+id/btnSave"
@@ -79,7 +76,7 @@
         android:layout_marginEnd="72dp"
         android:text="Salvar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtdata" />
+        app:layout_constraintTop_toBottomOf="@+id/edtDat" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

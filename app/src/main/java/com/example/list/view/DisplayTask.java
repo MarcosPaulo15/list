@@ -1,6 +1,5 @@
 package com.example.list.view;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -61,8 +60,22 @@ public class DisplayTask extends AppCompatActivity {
         }else if(id == R.id.update){
             
             Intent intent = new Intent(DisplayTask.this, AcUpdateTask.class);
+            intent.putExtra("ID_ITEM", itemId);
             startActivity(intent);
             return true;
+        } else if (id == R.id.newSubtaks) {
+
+            Intent intent = new Intent(DisplayTask.this, NewSubTask.class);
+            intent.putExtra("ID_ITEM", itemId);
+            startActivity(intent);
+            return true;
+        }
+        else if(id == R.id.subTask){
+
+            Intent intent = new Intent(DisplayTask.this, SubTask.class);
+            intent.putExtra("ID_ITEM", itemId);
+            startActivity(intent);
+
         }
 
         return super.onOptionsItemSelected(item);

@@ -58,56 +58,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /*public void  listar(){
-
-        try{
-
-            bd = openOrCreateDatabase("list", MODE_PRIVATE, null);
-            Cursor meuCursor = bd.rawQuery("SELECT ID, TITULO, DESCRICAO FROM list", null);
-            ArrayList<String> linhas = new ArrayList<String>();
-            final ArrayList<Integer> ids = new ArrayList<>();
-            ArrayAdapter meuAdapter = new ArrayAdapter<String>(
-                    this,
-                    android.R.layout.simple_list_item_1,
-                    android.R.id.text1,
-                    linhas
-            );
-            lista.setAdapter((meuAdapter));
-            meuCursor.moveToFirst();
-            /*while(meuCursor != null){
-
-                linhas.add(meuCursor.getString(1));
-                meuCursor.moveToNext();
-            }
-
-            while (!meuCursor.isAfterLast()) {  // Verifica se o cursor já terminou de iterar
-                linhas.add(meuCursor.getString(1));  // Adiciona o título ou descrição à lista
-                ids.add(meuCursor.getInt(0));  // Armazena o ID do banco de dados (_id)
-                meuCursor.moveToNext();
-            }
-
-            lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    // Recupera o ID do item clicado usando a posição
-                    int itemId = ids.get(position);
-
-                    // Exemplo de ação: mostrar um Toast com o ID
-                    Toast.makeText(MainActivity.this, "Item ID: " + itemId, Toast.LENGTH_SHORT).show();
-
-                    // Você pode usar este ID para carregar outra tela ou dados
-                    // Exemplo: Intent para abrir outra Activity e passar o ID
-                    Intent intent = new Intent(MainActivity.this, android.R.menu.class);
-                    intent.putExtra("ITEM_ID", itemId);
-                    //startActivity(intent);
-                }
-            });
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }*/
-
     public void listar() {
         try {
             // Abrindo/criando o banco de dados
@@ -145,8 +95,6 @@ public class MainActivity extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     // Recupera o ID do item clicado
                     int itemId = ids.get(position);
-
-
 
                     // Exibe o ID em um Toast
                     Toast.makeText(MainActivity.this, "Item ID: " + itemId, Toast.LENGTH_SHORT).show();

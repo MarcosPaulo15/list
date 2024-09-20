@@ -13,17 +13,19 @@
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".view.AcUpdateTask"
+            android:name=".view.DisplaySubTask"
             android:exported="false" />
         <activity
-            android:name=".view.Display_Task"
-            android:exported="false"
-            android:theme="@style/Theme.List" />
+            android:name=".view.SubTask"
+            android:exported="false" />
+        <activity
+            android:name=".view.AcUpdateTask"
+            android:exported="false" />
         <activity
             android:name=".view.DisplayTask"
             android:exported="false" />
         <activity
-            android:name=".view.SubTask"
+            android:name=".view.NewSubTask"
             android:exported="false" />
         <activity
             android:name=".view.NewList"
