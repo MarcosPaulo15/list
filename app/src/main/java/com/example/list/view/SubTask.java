@@ -34,7 +34,7 @@ public class SubTask extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Intent intent = getIntent();
-        itemId = intent.getIntExtra("ID_ITEM", -1);
+        itemId = intent.getIntExtra("ITEM_ID", -1);
 
         initialize();
         listar();
@@ -94,7 +94,7 @@ public class SubTask extends AppCompatActivity {
                     int itemId = ids.get(position);
 
                     // Exibe o ID em um Toast
-                    Toast.makeText(SubTask.this, "Item ID: " + itemId, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(SubTask.this, "Item ID: " + itemId, Toast.LENGTH_SHORT).show();
 
                     // Exemplo de redirecionamento para outra Activity (comente ou ajuste conforme necessário)
                     Intent intent = new Intent(SubTask.this, DisplaySubTask.class);

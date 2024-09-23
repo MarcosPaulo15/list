@@ -1,11 +1,13 @@
 package com.example.list.view;
 
+import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.list.R;
 import com.example.list.model.MdSubTask;
+
+import java.util.Calendar;
 
 public class NewSubTask extends AppCompatActivity {
 
@@ -32,7 +36,7 @@ public class NewSubTask extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_list);
         Intent intent = getIntent();
-        itemId = intent.getIntExtra("ID_ITEM", -1);
+        itemId = intent.getIntExtra("ITEM_ID", -1);
 
         Initialize();
 
@@ -43,10 +47,18 @@ public class NewSubTask extends AppCompatActivity {
             }
         });
 
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDatePickerDialog();
+            }
+        });
+
         btncancel.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(NewSubTask.this, DisplayTask.class);
+                intent.putExtra("ITEM_ID", itemId);
                 startActivity(intent);
             }
         });
@@ -119,6 +131,23 @@ public class NewSubTask extends AppCompatActivity {
     }
 
 
+    private void showDatePickerDialog() {
+        final Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                NewSubTask.this,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayofMonth) {
+                        date.setText(dayofMonth + "/" + (month + 1) + "/" + year);
+                    }
+                },
+                year, month, day);
+        datePickerDialog.show();
+    }
 
 
 }

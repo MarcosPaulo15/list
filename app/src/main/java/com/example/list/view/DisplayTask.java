@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,8 @@ public class DisplayTask extends AppCompatActivity {
     TextView edt;
     TextView date;
     int itemId;
+    Button btnVoltar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,15 @@ public class DisplayTask extends AppCompatActivity {
             // Tratamento caso não haja um ID válido
             Toast.makeText(this, "ID inválido", Toast.LENGTH_SHORT).show();
         }
+
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DisplayTask.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -60,22 +72,21 @@ public class DisplayTask extends AppCompatActivity {
         }else if(id == R.id.update){
             
             Intent intent = new Intent(DisplayTask.this, AcUpdateTask.class);
-            intent.putExtra("ID_ITEM", itemId);
+            intent.putExtra("ITEM_ID", itemId);
             startActivity(intent);
             return true;
         } else if (id == R.id.newSubtaks) {
 
             Intent intent = new Intent(DisplayTask.this, NewSubTask.class);
-            intent.putExtra("ID_ITEM", itemId);
+            intent.putExtra("ITEM_ID", itemId);
             startActivity(intent);
             return true;
         }
         else if(id == R.id.subTask){
 
             Intent intent = new Intent(DisplayTask.this, SubTask.class);
-            intent.putExtra("ID_ITEM", itemId);
+            intent.putExtra("ITEM_ID", itemId);
             startActivity(intent);
-
         }
 
         return super.onOptionsItemSelected(item);
@@ -86,6 +97,7 @@ public class DisplayTask extends AppCompatActivity {
         title = findViewById(R.id.txvTitle);
         edt = findViewById(R.id.txvdescription);
         date = findViewById(R.id.txvdata);
+        btnVoltar = findViewById(R.id.btnback);
     }
 
     public void delete(int id){

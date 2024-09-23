@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         try{
 
             bd = openOrCreateDatabase("list", MODE_PRIVATE, null);
-            mdlist.criarBD();
+            bd.execSQL(mdlist.criarBD());
             bd.close();
 
         }catch(Exception ex){
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                     int itemId = ids.get(position);
 
                     // Exibe o ID em um Toast
-                    Toast.makeText(MainActivity.this, "Item ID: " + itemId, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "Item ID: " + itemId, Toast.LENGTH_SHORT).show();
 
                     // Exemplo de redirecionamento para outra Activity (comente ou ajuste conforme necessário)
                 Intent intent = new Intent(MainActivity.this, DisplayTask.class);

@@ -68,16 +68,18 @@ public class MdNewList {
     }
 
 
-    public void criarBD(){
+    public String criarBD(){
         try{
-            bd.execSQL("CREATE TABLE IF NOT EXISTS list(" +
+            String query = ("CREATE TABLE IF NOT EXISTS list(" +
                     "ID INTEGER PRIMARY KEY AUTOINCREMENT" +
                     ", TITULO VARCHAR" +
                     ", DESCRICAO VARCHAR," +
                     "DATA VARCHAR)");
 
+            return query;
         }catch(Exception ex){
             ex.printStackTrace();
+            return "";
         }
     }
 
